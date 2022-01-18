@@ -1,1 +1,1 @@
-#pesapal junior-dev  interview
+# pesapal junior-dev interview exercises
