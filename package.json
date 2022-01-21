@@ -1,0 +1,19 @@
+{
+  "name": "pesapal-jnr",
+  "version": "1.0.0",
+  "description": "projects for position at pesapal",
+  "main": "./https-server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oneted11/int-jnr.git"
+  },
+  "author": "ted mureithi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oneted11/int-jnr/issues"
+  },
+  "homepage": "https://github.com/Oneted11/int-jnr#readme"
+}
