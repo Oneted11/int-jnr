@@ -4,6 +4,7 @@
   "description": "projects for position at pesapal",
   "main": "./https-server/server.js",
   "scripts": {
+    "start": "node ./https-server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
