@@ -11,6 +11,6 @@ const requestListener = function (req, res) {
 };
 app.get("/", requestListener);
 
-app.listen(port, () => {
+app.listen(process.env.port || port, () => {
   console.log(`Example app listening on port ${port}`);
 });
