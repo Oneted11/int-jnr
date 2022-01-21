@@ -1,14 +1,16 @@
 //plain nodejs server, no express used
-//import necessary inbuilt node module
-const http = require("http");
+//import necessary express
+const express = require("express");
 //create port variable for easier config down the line
+const app = express();
 port = 8080;
 
 const requestListener = function (req, res) {
   res.writeHead(200);
   res.end("Hello, World!");
 };
+app.get("/", requestListener);
 
-const server = http.createServer(requestListener);
-console.log(`server runing on port ${port}`);
-server.listen(port);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});

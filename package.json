@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Oneted11/int-jnr/issues"
   },
-  "homepage": "https://github.com/Oneted11/int-jnr#readme"
+  "homepage": "https://github.com/Oneted11/int-jnr#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
