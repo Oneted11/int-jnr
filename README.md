@@ -6,6 +6,10 @@ Began with inbuilt modules then moved to expressjs to make hosting with https ea
 
 It is currently hosted [here](https://node-server-ted.herokuapp.com/)
 
+I also tried out the dictionary exercise as can be seen in ./websrapper/scrapper.js
+
+It works well but needs improvement on data cleaning
+
 ## web server code
 
 ```javascript
