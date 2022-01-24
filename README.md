@@ -10,6 +10,23 @@ I also tried out the dictionary exercise as can be seen in ./websrapper/scrapper
 
 It works well but needs improvement on data cleaning
 
+# How to run locally
+## Prerequisites
+- node and npm installed
+- install node modules(within the folder with package.json)
+```
+npm install
+```
+
+## web server
+```
+node ./https-server/server.js
+```
+## web scrapper
+```
+node ./web-scraper/scrapper.js
+```
+
 ## web server code
 
 ```javascript
