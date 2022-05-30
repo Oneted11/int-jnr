@@ -35,7 +35,12 @@ Promise.all([wordArray]).then((values) => {
     "got here **********************************************************************"
   );
   logger(values[0]);
-  const data = values[0];
+  const uncleanData = values[0];
+  const data = uncleanData
+    .map((item) => {
+      item.replace("\n", " ").split(" ");
+    })
+    .flat(Infinity);
   // new set data
   const counts = {};
   for (const word of data) {
