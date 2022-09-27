@@ -28,7 +28,25 @@ const getAllText = async () => {
   //close the browser instance once done
   await browser.close();
 };
-const wordArray = getAllText();
+//trying new method using match
+const getAllText2 = async () => {
+  //create intance of puppeteer
+  const browser = await puppeteer.launch({
+    headless: true,
+  });
+  const page = (await browser.pages())[0];
+  await page.goto(website);
+  //extraction logic, might change a bunch of times
+  const extractedText = await page.$eval("*", (el) => el.innerText);
+  // format extracted text into a clean-ish array
+  const textArray = extractedText.match(/[^\n\t\r]/gi);
+
+  return textArray;
+  //close the browser instance once done
+  await browser.close();
+};
+
+const wordArray = getAllText2();
 //wait for all promises to resolve so as to manipulate data
 Promise.all([wordArray]).then((values) => {
   logger(
