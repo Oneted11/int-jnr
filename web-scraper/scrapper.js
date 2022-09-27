@@ -1,7 +1,7 @@
 // import puppeteer
 const puppeteer = require("puppeteer");
 // create a logger for debugging
-const logger = (stuff) => console.log(stuff);
+const logger = (stuff) => console.table(stuff);
 // abstract away the website into a named variable
 let website = "https://en.wikipedia.org/wiki/2022_Afghanistan_earthquake";
 
@@ -39,7 +39,7 @@ const getAllText2 = async () => {
   //extraction logic, might change a bunch of times
   const extractedText = await page.$eval("*", (el) => el.innerText);
   // format extracted text into a clean-ish array
-  const textArray = extractedText.match(/[^\n\t\r]/gi);
+  const textArray = extractedText.match(/[^\n\t\r0-9\!\:\.\)\(\,]/gi).join("");
 
   return textArray;
   //close the browser instance once done
@@ -53,15 +53,20 @@ Promise.all([wordArray]).then((values) => {
     "got here **********************************************************************"
   );
   logger(values[0]);
-  const uncleanData = values[0];
-  const data = uncleanData
-    .map((item) => {
-      item.replace("\n", " ").split(" ");
-    })
-    .flat(Infinity);
+  // turn array of chars back to string
+  const uncleanData = values[0].toString();
+  console.log("uncleanData>>>>>>>>>>>>", uncleanData);
+  // split the string by spaces to get words
+  const DataArr = uncleanData.split(" ");
+  logger(DataArr);
+
+  const data = DataArr.map((item) => {
+    return item.replace(".", " ").split(" ");
+  }).flat(Infinity);
   // new set data
+  logger(data);
   const counts = {};
-  for (const word of data) {
+  for (const word of DataArr) {
     counts[word] = counts[word] ? counts[word] + 1 : 1;
   }
   logger(counts);
